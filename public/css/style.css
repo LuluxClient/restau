@@ -1,0 +1,61 @@
+@import url('./fontawesome-free/css/all.min.css');
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/** Override niceadmin astyle to remove the sidebar */
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  background-color: var(--bs-body-bg);
+}
+header {
+  background-color: unset;
+}
+#main {
+  flex: 1;
+}
+@media (min-width: 1200px) {
+  #main,
+  #footer {
+    margin-left: auto;
+  }
+}
+button.btn-lg {
+  height: 60px;
+}
+.badge-table {
+  top: 30px;
+  right: 30px;
+}
+.card-title {
+  color: unset;
+}
+.table-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 70px;
+  width: 70px;
+}
+.table-label  span {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+a {
+  color: unset;
+}
+
+a:hover {
+  color: unset;
+}
+
+/** Override bootstrap style */
+:root {
+  --bs-body-bg: #6c757d;
+}

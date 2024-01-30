@@ -1,0 +1,7 @@
+{{#if table}}
+<div class="position-relative" role="button" onclick="window.open('/tables/{{table.id}}', '_self'); ">
+    <i class="fas fa-user {{#if table.order}}bg-danger{{else}}bg-success{{/if}} p-3  text-white rounded-circle position-absolute badge-table"></i>
+    <span class="table-label bg-primary text-white rounded"><span class="position-absolute">N°{{table.id}}</span></span>
+    <img src="/public/img/{{table.type}}.png">
+</div>
+{{/if}}

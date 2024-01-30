@@ -1,0 +1,39 @@
+ <script>
+    function convertTimestamp(timestamp) {
+        const date = new Date(timestamp);
+        const formattedDate = date.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute:'numeric'});
+        return formattedDate;
+    }
+</script>
+<div class="container">
+    <table class="table table-striped">
+        <thead class="sticky-top bg-light">
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col" style="max-width: 150px; min-width: 150px;">N° de Facture</th>
+            <th scope="col">N°  de table</th>
+            <th scope="col" class="text-center">Date</th>
+            <th scope="col" class="text-center">Montant Total</th>
+            <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each orders}}
+            <tr> 
+                    <th scope="row">{{math @index "+" 1}}</th>
+                    <td class="text-truncate" style="max-width: 150px; min-width: 150px;">{{this.id}}</td>
+                    <td class="text-center">{{this.id_table}}</td>
+                    <td class="text-center">
+                        <script>
+                            document.write(convertTimestamp({{this.date_end}}));
+                        </script>
+                    </td>
+                    <td class="text-center">{{priceFixed this.total_price}} <i class="fas fa-euro-sign"></i></td>
+                    <td class="text-center panel-invoices-item"  role="button" order-id="{{this.id}}">
+                        <a href="/invoices/{{this.id}}"><i class='far fa-file-lines'></i></a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

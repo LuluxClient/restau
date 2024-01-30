@@ -1,0 +1,12 @@
+<div class="container">
+  {{#each rows}}
+    <div class="row">
+       {{#each ../cols}}
+            <div class="col-sm">
+              {{>table table=(getTableAtPosition @../index @index)}}
+            </div>
+       {{/each}}
+    </div>
+  {{/each}}
+  </div>
+  </div>

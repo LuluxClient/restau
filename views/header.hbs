@@ -1,0 +1,22 @@
+<!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center shadow-none bg-dark">
+    <nav class="header-nav m-auto mb-0 w-100">
+        <ul class="nav nav-tabs justify-content-around">
+            <li class="nav-item w-25">
+                <a href="/plan" class="nav-link {{#if (isUrlActive "/plan")}}active{{/if}}">
+                    <span class="d-none d-lg-block text-center"><i class='fas fa-utensils fa-lg'></i> </span>
+                </a>
+            </li>
+            <li class="nav-item w-25">
+                <a href="/tables" class="nav-link {{#if (isUrlActive "/tables")}}active{{/if}}">
+                    <span class="d-none d-lg-block text-center"><i class='fas fa-cash-register fa-lg'></i> </span>
+                </a>
+            </li>
+            <li class="nav-item w-25">
+                <a href="/invoices" class="nav-link {{#if (isUrlActive "/invoices")}}active{{/if}}">
+                    <span class="d-none d-lg-block text-center"><i class='fas fa-receipt fa-lg'></i> </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+  </header>

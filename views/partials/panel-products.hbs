@@ -1,0 +1,9 @@
+<section class="section products">
+    <div class="row">
+         {{#each products}}
+           <div class="col-md-4 panel-products-items" product-id="{{this.id}}">
+                {{> panelProductCard pic=this.pic title=this.name }}
+           </div>
+        {{/each}}
+    </div>
+</section>
