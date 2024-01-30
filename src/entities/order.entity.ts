@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn } from 'typeorm';
 import { Product } from './product.entity';
 import { Table } from './table.entity';
 
@@ -23,29 +23,23 @@ export class Order {
   date_start: Date;
 
   @Column({ type: 'datetime', nullable: true }) 
-  date_end?: Date; 
-  // @Column({ type: 'datetime'}) 
-  // date_end: Date;  
-  
+  date_end?: Date;
 
-  @Column()
-  // @OneToMany()
-  table_id: number;
+  // Relation to Table entity
+  @ManyToOne(() => Table, table => table.orders, { nullable: true })
+  @JoinColumn({ name: 'table_id' })
+  table: Table;
 
   products: Product[];
-
-  table: Table;
 
   constructor() {
     this.total_price = 0.0;
     this.date_start = new Date(); // Assign current date and time
     this.status = OrderStatus.running; // Assuming default status is 'running'
+    this.products = [];
   }
 
   public addProduct(product: Product, quantity: number) {
-    if (!this.products) {
-      this.products = [];
-    }
     // find the product
     const index = this.products.findIndex((el) => {
       return el.id == product.id;
